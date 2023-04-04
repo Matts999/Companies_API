@@ -9,13 +9,18 @@ router.use(function(req, res, next){
   next();
 });
    
+// render root -> company
+router.get("/", (req, res) => {
+  res.redirect("company")
 
+})
+ 
 // render company_add
 router.get("/company_add", (req, res) => {
   res.render("company_add")
 
 })
-
+ 
 // display list of companies
 router.get("/company", async (req, res) => {
   const companies = await Company.find({ name: { $exists: true } });
@@ -63,7 +68,7 @@ router.get("/company/:ticker", async (req, res) => {
 
 
 // post form for companies, ADD company to database
-router.post("/", async (req, res) => {
+router.post("/add_comp", async (req, res) => {
   const company = new Company({
     name: req.body.name_company,
     ticker: req.body.name_ticker,
