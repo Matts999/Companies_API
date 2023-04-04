@@ -25,8 +25,7 @@ app.set("view engine", "ejs")
 //MongoDB connection
 const mongoose = require('mongoose');
 
-//const mongoURL = 'mongodb+srv://DB_user2:nhQGmALN8U0OqBdS@cluster0.jl3vvyk.mongodb.net/moviedb?&retryWrites=true&w=majority';
-//const mongoURL = 'mongodb+srv://DB_user2:nhQGmALN8U0OqBdS@cluster0.jl3vvyk.mongodb.net/companies_db?&retryWrites=true&w=majority';
+
 const mongoURL = 'mongodb+srv://'+ process.env.MongoDBUser +':' + process.env.MongoDBPassword +'@cluster0.jl3vvyk.mongodb.net/companies_db?&retryWrites=true&w=majority';
 
 mongoose.connect(mongoURL, { useNewUrlParser: true , useUnifiedTopology: true});
