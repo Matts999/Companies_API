@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<% if(message.success) { %>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
+    <div class="alert alert-success" role="alert">
+        <%= message.success %>
+    </div>
+<% } %>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><br>
+</head>
+<body>
+    <a href="/company_add">Click here to add company to list </a>
+    <h1>company list</h1>  
+
+
+    <% var list_comp_tickers = [] %>
+    <% var list_comp_names = [] %>
+    <% for (var i=0; i <locals.list.length; i++ ) { %>
+
+        <% list_comp_tickers.push(companies[i].ticker) %>
+        <% list_comp_names.push(companies[i].name) %>
+        
+        <% } %>
+ 
+    <!-- create buttons with link -->
+
+        <% for (var i=0; i < list_comp_tickers.length; i++) { %>
+            <input type="button" onclick="location.href='/company/<%= list_comp_tickers[i] %>';"  value="<%= locals.list[i] %>"><br>
+        <% } %>
+
+</body>
+</html>
+

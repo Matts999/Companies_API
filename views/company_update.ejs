@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update Company</h1>
+
+      <h1>company list</h1>
+
+    <% var list_comp_tickers = [] %>
+    <% var list_comp_names = [] %>
+    <% for (var i=0; i <locals.list.length; i++ ) { %>
+
+        <% list_comp_tickers.push(companies[i].ticker) %>
+        <% list_comp_names.push(companies[i].name) %>
+        
+        <% } %>
+
+        <%= console.log(list_comp_tickers) %>
+
+
+    <!-- create buttons -->
+
+        <% for (var i=0; i < list_comp_tickers.length; i++) { %>
+            <input type="button"  value="<%= list_comp_tickers[i] + " / " + list_comp_names[i] %>"><br>
+
+        <% } %>
+
+        <form action="company_upd/?_method=PUT" method="POST">
+        <label>
+            What company do you want to make an update to?(write ticker symbol):
+            <input type="text" name="company_ticker" onkeyup="this.value = this.value.toUpperCase()" value="" size="50"/><br>
+            <input type="hidden" name="_method" value="PUT">
+            Change company name :
+            <input type="text" name="company_name" value="" size="50"/><br>
+            
+        </label>
+        <button type="submit" value="PUT">Update</button>
+      </form>
+</body>
+</html>

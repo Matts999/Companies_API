@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<% if(message.success) { %>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
+    <div class="alert alert-success" role="alert">
+        <%= message.success %>
+    </div>
+<% } %>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add Company</h1>
+    <form action="/" method="POST">
+        <label>
+            Company Name:<input type="text" name="name_company" value="<%= locals.name_company %>" size="50"/><br>
+            Ticker Symbol:<input type="text" name="name_ticker" value="<%= locals.name_ticker %>" onkeyup="this.value = this.value.toUpperCase()" size="50"/> <br>
+            PE:<input type="text" name="pe" value="<%= locals.pe %>" size="50"/><br>
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+
+      
+    <script>
+
+    </script>
+</body>
+</html>
